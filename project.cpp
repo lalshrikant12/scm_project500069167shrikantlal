@@ -7,7 +7,14 @@ int main()
 cout<<"3.	Use for loop to print the truth table for the expression XY+Z"
 cout<<"4.	Base class ‘Temperature’ obtains temperature value in Celsius (c) through its parameterized constructor with default arguments and convert it into Fahrenheit value (f) and prints it using the function calculate(). Class ‘Temp’ inherits class ‘Temperature’ to obtain the temperature value in Fahrenheit and converts it into Kelvin value (k) and prints it using the redefined function calculate()."
 cout<<"5.Addition of two matrices using operator overloading - C++"<<endl
-	int x;
+cout<<"7 write a program to print half pyramid 1"<<endl
+                                               1 2
+                                               1 2 3
+					       1 2 3 4
+					       1 2 3 4 5
+}
+
+int x;
 	cin>>x;
 	switch(x)
 	{
@@ -136,4 +143,20 @@ int main()
      
         return 0;
 }
+case 6:int main()
+{
+    int rows;
 
+    cout << "Enter number of rows: ";
+    cin >> rows;
+
+    for(int i = 1; i <= rows; ++i)
+    {
+        for(int j = 1; j <= i; ++j)
+        {
+            cout << "* ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
