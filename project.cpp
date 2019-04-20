@@ -1,5 +1,6 @@
 i#include<iostream>
 using namespace std;
+<<<<<<< HEAD
 void truthtable()
 {
 	int x,y,z;
@@ -14,7 +15,6 @@ void truthtable()
 				else
 					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
 			}
-			
 void decimaltobinary()
 {
 int num, bin;
@@ -27,14 +27,12 @@ int num, bin;
         cout << bin;
         num /= 2;
     }
-			}		
-
-
+			}	
 void temp()
 {{
 	int x,y,z;
 	cout<<"X\tY\tZ\tXY+Z";
-	
+
 	for(x=0;x<=1;++x)
 		for(y=0;y<=1;++y)
 			for(z=0;z<=1;++z)
@@ -45,14 +43,7 @@ void temp()
 					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
 			}
 }
-
-
-
 	
-			
-			
-	
-}	
 int main()
 {cout<<"select the program you want to run"<<endl;
 	cout<<"1. Use for loop to print the truth table for the expression XY+Z."<<endl;
@@ -65,20 +56,21 @@ cout<<"7 write a program to print half pyramid 1"<<endl
                                                1 2 3
 					       1 2 3 4
 					       1 2 3 4 5
+cout<<"6.Write a program to multiply a matrix"<<endl;
 }
 
 int x;
 	cin>>x;
 	switch(x)
 	{
-
 case 1: truthtable();
-break;
+       break;
 case 2: decimaltobinary();
-break;
+       break;
 case 3: temp();
-break;
-case 4: 
+       break;}
+
+case 4:
 
 class TEMP
 {
@@ -169,5 +161,72 @@ case 6:int main()
         }
         cout << "\n";
     }
+    return 0;
+}
+case 7: int main()
+{
+    int a[10][10], b[10][10], mult[10][10], r1, c1, r2, c2, i, j, k;
+
+    cout << "Enter rows and columns for first matrix: ";
+    cin >> r1 >> c1;
+    cout << "Enter rows and columns for second matrix: ";
+    cin >> r2 >> c2;
+
+    // If column of first matrix in not equal to row of second matrix,
+    // ask the user to enter the size of matrix again.
+    while (c1!=r2)
+    {
+        cout << "Error! column of first matrix not equal to row of second.";
+
+        cout << "Enter rows and columns for first matrix: ";
+        cin >> r1 >> c1;
+
+        cout << "Enter rows and columns for second matrix: ";
+        cin >> r2 >> c2;
+    }
+
+    // Storing elements of first matrix.
+    cout << endl << "Enter elements of matrix 1:" << endl;
+    for(i = 0; i < r1; ++i)
+        for(j = 0; j < c1; ++j)
+        {
+            cout << "Enter element a" << i + 1 << j + 1 << " : ";
+            cin >> a[i][j];
+        }
+
+    // Storing elements of second matrix.
+    cout << endl << "Enter elements of matrix 2:" << endl;
+    for(i = 0; i < r2; ++i)
+        for(j = 0; j < c2; ++j)
+        {
+            cout << "Enter element b" << i + 1 << j + 1 << " : ";
+            cin >> b[i][j];
+        }
+
+    // Initializing elements of matrix mult to 0.
+    for(i = 0; i < r1; ++i)
+        for(j = 0; j < c2; ++j)
+        {
+            mult[i][j]=0;
+        }
+
+    // Multiplying matrix a and b and storing in array mult.
+    for(i = 0; i < r1; ++i)
+        for(j = 0; j < c2; ++j)
+            for(k = 0; k < c1; ++k)
+            {
+                mult[i][j] += a[i][k] * b[k][j];
+            }
+
+    // Displaying the multiplication of two matrix.
+    cout << endl << "Output Matrix: " << endl;
+    for(i = 0; i < r1; ++i)
+    for(j = 0; j < c2; ++j)
+    {
+        cout << " " << mult[i][j];
+        if(j == c2-1)
+            cout << endl;
+    }
+
     return 0;
 }
