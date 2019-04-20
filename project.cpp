@@ -1,6 +1,6 @@
 i#include<iostream>
 using namespace std;
-<<<<<<< HEAD
+
 void truthtable()
 {
 	int x,y,z;
@@ -27,7 +27,7 @@ int num, bin;
         cout << bin;
         num /= 2;
     }
-			}	
+
 void temp()
 {{
 	int x,y,z;
@@ -42,36 +42,10 @@ void temp()
 				else
 					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
 			}
+
 }
 	
-int main()
-{cout<<"select the program you want to run"<<endl;
-	cout<<"1. Use for loop to print the truth table for the expression XY+Z."<<endl;
-	cout<<"2.Convert Decimal number into a Binary Number using 1D array."<<endl;
-cout<<"3.	Use for loop to print the truth table for the expression XY+Z"
-cout<<"4.	Base class ‘Temperature’ obtains temperature value in Celsius (c) through its parameterized constructor with default arguments and convert it into Fahrenheit value (f) and prints it using the function calculate(). Class ‘Temp’ inherits class ‘Temperature’ to obtain the temperature value in Fahrenheit and converts it into Kelvin value (k) and prints it using the redefined function calculate()."
-cout<<"5.Addition of two matrices using operator overloading - C++"<<endl
-cout<<"7 write a program to print half pyramid 1"<<endl
-                                               1 2
-                                               1 2 3
-					       1 2 3 4
-					       1 2 3 4 5
-cout<<"6.Write a program to multiply a matrix"<<endl;
-}
-
-int x;
-	cin>>x;
-	switch(x)
-	{
-case 1: truthtable();
-       break;
-case 2: decimaltobinary();
-       break;
-case 3: temp();
-       break;}
-
-case 4:
-
+void temperature()
 class TEMP
 {
     float f,c;
@@ -100,6 +74,38 @@ void  main()
 TEMP c;
 c.display();
 }
+
+int main()
+	
+
+{cout<<"select the program you want to run"<<endl;
+	cout<<"1. Use for loop to print the truth table for the expression XY+Z."<<endl;
+	cout<<"2.Convert Decimal number into a Binary Number using 1D array."<<endl;
+cout<<"3.	Use for loop to print the truth table for the expression XY+Z"
+c  out<<"4.	Base class ‘Temperature’ obtains temperature value in Celsius (c) through its parameterized constructor with default arguments and convert it into Fahrenheit value (f) and prints it using the function calculate(). Class ‘Temp’ inherits class ‘Temperature’ to obtain the temperature value in Fahrenheit and converts it into Kelvin value (k) and prints it using the redefined function calculate()."
+cout<<"5.Addition of two matrices using operator overloading - C++"<<endl
+cout<<"7 write a program to print half pyramid 1"<<endl
+                                               1 2
+                                               1 2 3
+					       1 2 3 4
+					       1 2 3 4 5
+cout<<"6.Write a program to multiply a matrix"<<endl;
+}
+
+int x;
+	cin>>x;
+	switch(x)
+	{
+case 1: truthtable();
+       break;
+case 2: decimaltobinary();
+       break;
+case 3: temp();
+       break;}
+
+case 4: temperature();
+        break;
+
 case 5:class Complex
 {
         int num1, num2;
