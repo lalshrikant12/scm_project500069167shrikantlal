@@ -345,6 +345,50 @@ int main()
 	else
 		cout << "Stack Is Not Empty\n";
 }
+void filewritting()
+{ofstream myfile;
+  myfile.open ("example.txt");
+  myfile << "Writing this to a file.\n";
+  myfile.close();}
+void arrayrotation()
+{/*Function to left Rotate arr[] of  
+  size n by 1*/
+void leftRotatebyOne(int arr[], int n) 
+{ 
+    int temp = arr[0], i; 
+    for (i = 0; i < n - 1; i++) 
+        arr[i] = arr[i + 1]; 
+  
+    arr[i] = temp; 
+} 
+  
+/*Function to left rotate arr[] of size n by d*/
+void leftRotate(int arr[], int d, int n) 
+{ 
+    for (int i = 0; i < d; i++) 
+        leftRotatebyOne(arr, n); 
+} 
+  
+/* utility function to print an array */
+void printArray(int arr[], int n) 
+{ 
+    for (int i = 0; i < n; i++) 
+        cout << arr[i] << " "; 
+} 
+  
+/* Driver program to test above functions */
+int main() 
+{ 
+    int arr[] = { 1, 2, 3, 4, 5, 6, 7 }; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+  
+    // Function calling 
+    leftRotate(arr, 2, n); 
+    printArray(arr, n); 
+  
+    
+} 
+}
 
 int main()
 	
@@ -355,14 +399,16 @@ int main()
 cout<<"3.	Use for loop to print the truth table for the expression XY+Z"
 c  out<<"4.	Base class ‘Temperature’ obtains temperature value in Celsius (c) through its parameterized constructor with default arguments and convert it into Fahrenheit value (f) and prints it using the function calculate(). Class ‘Temp’ inherits class ‘Temperature’ to obtain the temperature value in Fahrenheit and converts it into Kelvin value (k) and prints it using the redefined function calculate()."
 cout<<"5.Addition of two matrices using operator overloading - C++"<<endl
-cout<<"7 write a program to print half pyramid 1"<<endl
+cout<<"6 write a program to print half pyramid 1"<<endl
                                                1 2
                                                1 2 3
 					       1 2 3 4
 					       1 2 3 4 5
-cout<<"6.Write a program to multiply a matrix"<<endl;
-cout<<"7.	Write a generic function to sort the given elements in ascending order using bubble sort algorithm. This generic function must support integer and float types<<endl;
-cout<<"8.2.	Write a generic class to implement the operations of a stack data structure using arrays. This generic class must support integer and float types.<<endl;
+cout<<"7.Write a program to multiply a matrix"<<endl;
+cout<<"8.	Write a generic function to sort the given elements in ascending order using bubble sort algorithm. This generic function must support integer and float types<<endl;
+cout<<"9	Write a generic class to implement the operations of a stack data structure using arrays. This generic class must support integer and float types.<<endl;
+cout<<"10	Write contents into a Test file. Get a word from the user as input, compute the number of occurrences of this word in the file and print the count."
+cout<<"11 write a program for array rotation"<<endl;
 }
 
 
@@ -392,4 +438,8 @@ case 7: matrixmultiplication();
 case 8: bubblesort();
 	break;
 case 9: stakgenericclass()
+	break;
+case 10: filewritting();
+	break;
+case 11: arrayrotation();
 	break;
