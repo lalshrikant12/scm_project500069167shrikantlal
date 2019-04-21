@@ -446,6 +446,69 @@ do {
    
 }
 }
+void bstarray() 
+{/* A binary tree node has data,  
+pointer to left child and a 
+pointer to right child */
+struct Node 
+{ 
+    int data; 
+    Node* left, * right; 
+}; 
+  
+/* Helper function that allocates a 
+new node */
+Node* newNode(int data) 
+{ 
+    Node* node = (Node*)malloc(sizeof(Node)); 
+    node->data = data; 
+    node->left = node->right = NULL; 
+    return (node); 
+} 
+  
+// Function to insert nodes in level order 
+Node* insertLevelOrder(int arr[], Node* root, 
+                       int i, int n) 
+{ 
+    // Base case for recursion 
+    if (i < n) 
+    { 
+        Node* temp = newNode(arr[i]); 
+        root = temp; 
+  
+        // insert left child 
+        root->left = insertLevelOrder(arr, 
+                   root->left, 2 * i + 1, n); 
+  
+        // insert right child 
+        root->right = insertLevelOrder(arr, 
+                  root->right, 2 * i + 2, n); 
+    } 
+    return root; 
+} 
+  
+// Function to print tree nodes in 
+// InOrder fashion 
+void inOrder(Node* root) 
+{ 
+    if (root != NULL) 
+    { 
+        inOrder(root->left); 
+        cout << root->data <<" "; 
+        inOrder(root->right); 
+    } 
+} 
+  
+// Driver program to test above function 
+int main() 
+{ 
+    int arr[] = { 1, 2, 3, 4, 5, 6, 6, 6, 6 }; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    Node* root = insertLevelOrder(arr, root, 0, n); 
+    inOrder(root); 
+} 
+
+
 int main()
 	
 
@@ -465,8 +528,8 @@ cout<<"8.	Write a generic function to sort the given elements in ascending order
 cout<<"9	Write a generic class to implement the operations of a stack data structure using arrays. This generic class must support integer and float types."<<endl
 cout<<"10	Write contents into a Test file. Get a word from the user as input, compute the number of occurrences of this word in the file and print the count."
 cout<<"11 write a program for array rotation"<<endl;
-cout<<"write a program of implementation of queue using array"<<endl;}
-
+cout<<"12write a program of implementation of queue using array"<<endl;
+cout<<"13.Construct a complete binary tree using array"<<endl;
 
 int x;
 	cin>>x;
@@ -501,3 +564,6 @@ case 11: arrayrotation();
         break;
 case 12:queuearray()	;
 	break;
+case 12:bstarray();
+	break;
+
