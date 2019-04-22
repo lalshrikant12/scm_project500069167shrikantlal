@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+
 struct tree
 {
     tree *l, *r;
@@ -117,43 +118,7 @@ create();
     getch();
 }
 
-int x;
-	cin>>x;
-	switch(x)
-	{
-case1: int x,y,z;
-	cout<<"X\tY\tZ\tXY+Z";
-	
-	for(x=0;x<=1;++x)
-		for(y=0;y<=1;++y)
-			for(z=0;z<=1;++z)
-			{
-				if(x*y+z==2)
-					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t1";
-				else
-					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
-			}
-	
-	return 0;
-	break;
-case2 :    int num, bin;
-    cout << "Enter the number : ";
-    cin >> num;
-    cout << "The binary equivalent of " << num << " is ";
-    while (num > 0)
-    {
-        bin = num % 2;
-        cout << bin;
-        num /= 2;
-    }
-    return 0;
-    break;
-		default :cout<<"invalid choice"<<endl;
-	}
-case3 : 
- 
- 
-int main()
+void truthtable()
 {
 	int x,y,z;
 	cout<<"X\tY\tZ\tXY+Z";
@@ -167,11 +132,37 @@ int main()
 				else
 					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
 			}
-	
-	return 0;
-}
-case 4: 
+void decimaltobinary()
+{
+int num, bin;
+    cout << "Enter the number : ";
+    cin >> num;
+    cout << "The binary equivalent of " << num << " is ";
+    while (num > 0)
+    {
+        bin = num % 2;
+        cout << bin;
+        num /= 2;
+    }
 
+void temp()
+{{
+	int x,y,z;
+	cout<<"X\tY\tZ\tXY+Z";
+
+	for(x=0;x<=1;++x)
+		for(y=0;y<=1;++y)
+			for(z=0;z<=1;++z)
+			{
+				if(x*y+z==2)
+					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t1";
+				else
+					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
+			}
+
+}
+	
+void temperature()
 class TEMP
 {
     float f,c;
@@ -200,12 +191,14 @@ void  main()
 TEMP c;
 c.display();
 }
-case 5:class Complex
+
+void complex()
+{class Complex
 {
         int num1, num2;
     public:
         void accept()
-        {
+       {
                 cout<<"\n Enter Two Complex Numbers : ";
                 cin>>num1>>num2;
         }
@@ -225,28 +218,8 @@ Complex operator+(Complex c1, Complex c2)
         c.num2=c1.num2+c2.num2;
         return(c);
 }
-int main()
-{
-        Complex c1,c2, sum;      //Created Object of Class Complex i.e c1 and c2
 
-        c1.accept();  //Accepting the values
-        c2.accept();
-
-        sum = c1+c2;   //Addition of object
-    
-        cout<<"\n Entered Values : \n";
-        cout<<"\t";
-        c1.display();    //Displaying user input values
-        cout<<"\t";
-        c2.display();
-  
-        cout<<"\n Addition of Real and Imaginary Numbers : \n";
-        cout<<"\t";
-        sum.display();  //Displaying the addition of real and imaginary numbers
-     
-        return 0;
-}
-case 6:int main()
+void matrix()
 {
     int rows;
 
@@ -263,8 +236,9 @@ case 6:int main()
     }
     return 0;
 }
-case 7: int main()
-{
+void matrixmultiplication()
+	{
+   {
     int a[10][10], b[10][10], mult[10][10], r1, c1, r2, c2, i, j, k;
 
     cout << "Enter rows and columns for first matrix: ";
@@ -327,6 +301,450 @@ case 7: int main()
         if(j == c2-1)
             cout << endl;
     }
-
-    return 0;
+void bubblesort()
+{	template<class bubble>
+void bubble(bubble a[], int n)
+{
+    int i, j;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+                bubble element;
+                element = a[i];
+                a[i] = a[j];
+                a[j] = element;
+            }
+        }
+    }
 }
+
+void main()
+{
+    int a[6]={1,2,3,4,4,3};
+    char b[4]={'s','b','d','e'};
+    clrscr();
+    bubble(a,6);
+    cout<<"\nSorted Order Integers: ";
+    for(int i=0;i<6;i++)
+        cout<<a[i]<<"\t";
+    bubble(b,4);
+
+    cout<<"\nSorted Order Characters: ";
+    for(int j=0;j<4;j++)
+        cout<<b[j]<<"\t";
+   
+}
+void stackgenericclass()
+
+
+// define default capacity of stack
+#define SIZE 10
+
+
+// Class for stack
+template <class X>
+class stack
+{
+	X *arr;
+	int top;
+	int capacity;
+
+public:
+	stack(int size = SIZE);	// constructor
+
+	void push(X);
+	X pop();
+	X peek();
+
+	int size();
+	bool isEmpty();
+	bool isFull();
+};
+
+// Constructor to initialize stack
+template <class X>
+stack<X>::stack(int size)
+{
+	arr = new X[size];
+	capacity = size;
+	top = -1;
+}
+
+// function to add an element x in the stack
+template <class X>
+void stack<X>::push(X x)
+{
+	if (isFull())
+	{
+		cout << "OverFlow\nProgram Terminated\n";
+		exit(EXIT_FAILURE);
+	}
+
+	cout << "Inserting " << x << endl;
+	arr[++top] = x;
+}
+
+// function to pop top element from the stack
+template <class X>
+X stack<X>::pop()
+{
+	// check for stack underflow
+	if (isEmpty())
+	{
+		cout << "UnderFlow\nProgram Terminated\n";
+		exit(EXIT_FAILURE);
+	}
+
+	cout << "Removing " << peek() << endl;
+
+	// decrease stack size by 1 and (optionally) return the popped element
+	return arr[top--];
+}
+
+// function to return top element in a stack
+template <class X>
+X stack<X>::peek()
+{
+	if (!isEmpty())
+		return arr[top];
+	else
+		exit(EXIT_FAILURE);
+}
+
+// Utility function to return the size of the stack
+template <class X>
+int stack<X>::size()
+{
+	return top + 1;
+}
+
+// Utility function to check if the stack is empty or not
+template <class X>
+bool stack<X>::isEmpty()
+{
+	return top == -1;	// or return size() == 0;
+}
+
+// Utility function to check if the stack is full or not
+template <class X>
+bool stack<X>::isFull()
+{
+	return top == capacity - 1;	// or return size() == capacity;
+}
+
+// main function
+int main()
+{
+	stack<string> pt(2);
+
+	pt.push("A");
+	pt.push("B");
+
+	pt.pop();
+	pt.pop();
+
+	pt.push("C");
+
+ 	// Prints the top of the stack
+ 	cout << "Top element is: " << pt.peek() << endl;
+
+	// Returns the number of elements present in the stack
+	cout << "Stack size is " << pt.size() << endl;
+
+	pt.pop();
+
+	// check if stack is empty or not
+	if (pt.isEmpty())
+		cout << "Stack Is Empty\n";
+	else
+		cout << "Stack Is Not Empty\n";
+}
+void filewritting()
+{ofstream myfile;
+  myfile.open ("example.txt");
+  myfile << "Writing this to a file.\n";
+  myfile.close();}
+void arrayrotation()
+{/*Function to left Rotate arr[] of  
+  size n by 1*/
+void leftRotatebyOne(int arr[], int n) 
+{ 
+    int temp = arr[0], i; 
+    for (i = 0; i < n - 1; i++) 
+        arr[i] = arr[i + 1]; 
+  
+    arr[i] = temp; 
+} 
+  
+/*Function to left rotate arr[] of size n by d*/
+void leftRotate(int arr[], int d, int n) 
+{ 
+    for (int i = 0; i < d; i++) 
+        leftRotatebyOne(arr, n); 
+} 
+  
+/* utility function to print an array */
+void printArray(int arr[], int n) 
+{ 
+    for (int i = 0; i < n; i++) 
+        cout << arr[i] << " "; 
+} 
+  
+/* Driver program to test above functions */
+int main() 
+{ 
+    int arr[] = { 1, 2, 3, 4, 5, 6, 7 }; 
+    int n = sizeof(arr) / sizeof(arr[0]); 
+  
+    // Function calling 
+    leftRotate(arr, 2, n); 
+    printArray(arr, n); 
+  
+    
+} 
+}
+void queuearray()
+{int queue[100], n = 100, front = - 1, rear = - 1;
+void Insert() {
+   int val;
+   if (rear == n - 1)
+      cout<<"Queue Overflow"<<endl;
+   else {
+      if (front == - 1)
+      front = 0;
+      cout<<"Insert the element in queue : "<<endl;
+      cin>>val;
+      rear++;
+      queue[rear] = val;
+   }
+}
+void Delete() {
+   if (front == - 1 || front > rear) {
+      cout<<"Queue Underflow ";
+   return ;
+   } else {
+      cout<<"Element deleted from queue is : "<< queue[front] <<endl;
+      front++;;
+   }
+}
+void Display() {
+   if (front == - 1)
+   cout<<"Queue is empty"<<endl;
+   else {
+      cout<<"Queue elements are : ";
+      for (int i = front; i <= rear; i++)
+         cout<<queue[i]<<" ";
+      cout<<endl;
+   }
+
+   int ch;
+   cout<<"1) Insert element to queue"<<endl;
+   cout<<"2) Delete element from queue"<<endl;
+   cout<<"3) Display all the elements of queue"<<endl;
+   cout<<"4) Exit"<<endl;
+do {
+   cout<<"Enter your choice : "<<endl;
+   cin<<ch;
+   switch (ch) {
+      case 1: Insert();
+         break;
+      case 2: Delete();
+         break;
+      case 3: Display();
+         break;
+      case 4: cout<<"Exit"<<endl;
+         break;
+      default: cout<<"Invalid choice"<<endl;
+   }
+} while(ch!=4);
+   
+}
+
+void stackusingarray()
+{
+	int stack[100], n=100, top=-1;
+void push(int val) {
+   if(top>=n-1)
+      cout<<"Stack Overflow"<<endl;
+   else {
+      top++;
+      stack[top]=val;
+   }
+}
+void pop() {
+   if(top<=-1)
+      cout<<"Stack Underflow"<<endl;
+   else {
+      cout<<"The popped element is "<< stack[top] <<endl;
+      top--;
+   }
+}
+void display() {
+   if(top>=0) {
+      cout<<"Stack elements are:";
+      for(int i=top; i>=0; i--)
+         cout<<stack[i]<<" ";
+         cout<<endl;
+   } else
+      cout<<"Stack is empty";
+}
+int main() {
+   int ch, val;
+   cout<<"1) Push in stack"<<endl;
+   cout<<"2) Pop from stack"<<endl;
+   cout<<"3) Display stack"<<endl;
+   cout<<"4) Exit"<<endl;
+   do {
+      cout<<"Enter choice: "<<endl;
+      cin>>ch;
+      switch(ch) {
+         case 1: {
+            cout<<"Enter value to be pushed:"<<endl;
+            cin>>val;
+            push(val);
+            break;
+         }
+         case 2: {
+            pop();
+            break;
+         }
+         case 3: {
+            display();
+            break;
+         }
+         case 4: {
+            cout<<"Exit"<<endl;
+            break;
+         }
+         default: {
+            cout<<"Invalid Choice"<<endl;
+         }
+      }
+   }while(ch!=4);
+      return 0;
+}
+}
+void bstarray()
+{/* A binary tree node has data,  
+pointer to left child and a 
+pointer to right child */
+struct Node 
+{ 
+    int data; 
+    Node* left, * right; 
+}; 
+  
+/* Helper function that allocates a 
+new node */
+Node* newNode(int data) 
+{ 
+    Node* node = (Node*)malloc(sizeof(Node)); 
+    node->data = data; 
+    node->left = node->right = NULL; 
+    return (node); 
+} 
+  
+// Function to insert nodes in level order 
+Node* insertLevelOrder(int arr[], Node* root, 
+                       int i, int n) 
+{ 
+    // Base case for recursion 
+    if (i < n) 
+    { 
+        Node* temp = newNode(arr[i]); 
+        root = temp; 
+  
+        // insert left child 
+        root->left = insertLevelOrder(arr, 
+                   root->left, 2 * i + 1, n); 
+  
+        // insert right child 
+        root->right = insertLevelOrder(arr, 
+                  root->right, 2 * i + 2, n); 
+    } 
+    return root; 
+} 
+  
+// Function to print tree nodes in 
+// InOrder fashion 
+void inOrder(Node* root) 
+{ 
+    if (root != NULL) 
+    { 
+        inOrder(root->left); 
+        cout << root->data <<" "; 
+        inOrder(root->right); 
+    } 
+} 
+  
+// Driver program to test above function 
+int main() 
+{ 
+    int arr[] = { 1, 2, 3, 4, 5, 6, 6, 6, 6 }; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    Node* root = insertLevelOrder(arr, root, 0, n); 
+    inOrder(root); 
+} 
+}
+int main()
+	
+
+{cout<<"select the program you want to run"<<endl;
+	cout<<"1. Use for loop to print the truth table for the expression XY+Z."<<endl;
+	cout<<"2.Convert Decimal number into a Binary Number using 1D array."<<endl;
+cout<<"3.	Use for loop to print the truth table for the expression XY+Z"
+c  out<<"4.	Base class ‘Temperature’ obtains temperature value in Celsius (c) through its parameterized constructor with default arguments and convert it into Fahrenheit value (f) and prints it using the function calculate(). Class ‘Temp’ inherits class ‘Temperature’ to obtain the temperature value in Fahrenheit and converts it into Kelvin value (k) and prints it using the redefined function calculate()."
+cout<<"5.Addition of two matrices using operator overloading - C++"<<endl
+cout<<"6 write a program to print half pyramid 1"<<endl
+                                               1 2
+                                               1 2 3
+					       1 2 3 4
+					       1 2 3 4 5
+cout<<"7.Write a program to multiply a matrix"<<endl;
+cout<<"8.	Write a generic function to sort the given elements in ascending order using bubble sort algorithm. This generic function must support integer and float types"<<endl;
+cout<<"9	Write a generic class to implement the operations of a stack data structure using arrays. This generic class must support integer and float types."<<endl
+cout<<"10	Write contents into a Test file. Get a word from the user as input, compute the number of occurrences of this word in the file and print the count."
+cout<<"11 write a program for array rotation"<<endl;
+cout<<"12write a program of implementation of queue using array"<<endl;}
+cout<<"13C++ Program to Implement Stack using array"<<endl;
+cout<<"14 write a program to create bst using array"<<endl;
+int x;
+	cin>>x;
+	switch(x)
+	{
+case 1: truthtable();
+       break;
+case 2: decimaltoobinary();
+       break;
+case 3: temp();
+       break;}
+
+case 4: temperature();
+        break;
+
+case 5: Complex();
+        break;
+
+        
+case 6: matrix();
+        break;
+
+case 7: matrixmultiplication();
+        break;
+case 8: bubblesort();
+	break;
+case 9: stakgenericclass()
+	break;
+case 10: filewritting();
+	break;
+case 11: arrayrotation();
+        break;
+case 12:queuearray()	;
+	break;
+case 13:stackusingarray();
+        break;
+ case 14:bstarray();
+        break;
