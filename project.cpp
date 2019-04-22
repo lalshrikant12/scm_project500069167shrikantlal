@@ -904,7 +904,6 @@ case 12:queuearray()	;
 case 12:bstarray();
 	break;
 
-=======
 case 13:stackusingarray();
         break;
  case 14:bstarray();
