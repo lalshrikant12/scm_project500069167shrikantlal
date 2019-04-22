@@ -1,20 +1,223 @@
-i#include<iostream>
+#include<iostream>
 using namespace std;
 
-void truthtable()
+void priorityqueue()
 {
-	int x,y,z;
-	cout<<"X\tY\tZ\tXY+Z";
-	
-	for(x=0;x<=1;++x)
-		for(y=0;y<=1;++y)
-			for(z=0;z<=1;++z)
-			{
-				if(x*y+z==2)
-					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t1";
-				else
-					cout<<"\n\n"<<x<<"\t"<<y<<"\t"<<z<<"\t"<<x*y+z;
-			}
+	/*
+ * Node Declaration
+ */
+struct node
+{
+	int priority;
+	int info;
+	struct node *link;
+};
+/*
+ * Class Priority Queue
+ */
+class Priority_Queue
+{
+    private:
+        node *front;
+    public:
+        Priority_Queue()
+        {
+            front = NULL;
+        }
+        /*
+         * Insert into Priority Queue
+         */
+        void insert(int item, int priority)
+        {
+            node *tmp, *q;
+            tmp = new node;
+            tmp->info = item;
+            tmp->priority = priority;
+            if (front == NULL || priority < front->priority)
+            {
+                tmp->link = front;
+                front = tmp;
+            }
+            else
+            {
+                q = front;
+                while (q->link != NULL && q->link->priority <= priority)
+                    q=q->link;
+                tmp->link = q->link;
+                q->link = tmp;
+            }
+        }
+        /*
+         * Delete from Priority Queue
+         */
+        void del()
+        {
+            node *tmp;
+            if(front == NULL)
+                cout<<"Queue Underflow\n";
+            else
+            {
+                tmp = front;
+                cout<<"Deleted item is: "<<tmp->info<<endl;
+                front = front->link;
+                free(tmp);
+            }
+        }
+        /*
+         * Print Priority Queue
+         */
+        void display()
+        {
+            node *ptr;
+            ptr = front;
+            if (front == NULL)
+                cout<<"Queue is empty\n";
+            else
+            {	cout<<"Queue is :\n";
+                cout<<"Priority       Item\n";
+                while(ptr != NULL)
+                {
+                    cout<<ptr->priority<<"                 "<<ptr->info<<endl;
+                    ptr = ptr->link;
+                }
+            }
+        }
+};
+/*
+ * Main
+ */
+int main()
+{
+    int choice, item, priority;
+    Priority_Queue pq;
+    do
+    {
+        cout<<"1.Insert\n";
+        cout<<"2.Delete\n";
+        cout<<"3.Display\n";
+        cout<<"4.Quit\n";
+        cout<<"Enter your choice : ";
+        cin>>choice;
+        switch(choice)
+        {
+        case 1:
+            cout<<"Input the item value to be added in the queue : ";
+            cin>>item;
+            cout<<"Enter its priority : ";
+            cin>>priority;
+            pq.insert(item, priority);
+            break;
+        case 2:
+            pq.del();
+            break;
+        case 3:
+            pq.display();
+            break;
+        case 4:
+            break;
+        default :
+            cout<<"Wrong choice\n";
+        }
+    }
+    while(choice != 4);
+    return 0;
+    }
+}
+void bstlinkedlist()
+{
+struct tree
+{
+    tree *l, *r;
+    int data;
+}*root = NULL, *p = NULL, *np = NULL, *q;
+ 
+void create()
+{
+    int value,c = 0;   
+    while (c < 7)
+    {
+        if (root == NULL)
+        {
+            root = new tree;
+            cout<<"enter value of root node\n";
+            cin>>root->data;
+            root->r=NULL;
+            root->l=NULL;
+        }
+        else
+        {
+            p = root;
+            cout<<"enter value of node\n";
+            cin>>value;
+            while(true)
+            {
+                if (value < p->data)
+                {
+                    if (p->l == NULL)
+                    {
+                        p->l = new tree;
+                        p = p->l;
+                        p->data = value;
+                        p->l = NULL;
+                        p->r = NULL;
+                        cout<<"value entered in left\n";
+                        break;
+                    }
+                    else if (p->l != NULL)
+                    {
+                        p = p->l;
+                    }
+                }
+                else if (value > p->data)
+                {
+                    if (p->r == NULL)
+                    {
+                        p->r = new tree;
+                        p = p->r;
+                        p->data = value;
+                        p->l = NULL;
+                        p->r = NULL;
+                        cout<<"value entered in right\n";
+		        break;
+		    }
+                    else if (p->r != NULL)
+                    {
+                        p = p->r;
+                    }
+                 }
+             }
+        }
+       
+    }
+}
+void inorder(tree *p)
+{
+    if (p != NULL)
+    {
+        inorder(p->l);
+        cout<<p->data<<endl;
+        inorder(p->r);
+    }
+}
+void preorder(tree *p)
+{
+    if (p != NULL)
+    {
+        cout<<p->data<<endl;
+        preorder(p->l);
+        preorder(p->r);
+    }
+}
+void postorder(tree *p)
+{
+    if (p != NULL)
+    {
+        postorder(p->l);
+        postorder(p->r);
+        cout<<p->data<<endl;
+    }
+}
+
 void decimaltobinary()
 {
 int num, bin;
@@ -445,6 +648,132 @@ do {
 } while(ch!=4);
    
 }
+
+void stackusingarray()
+{
+	int stack[100], n=100, top=-1;
+void push(int val) {
+   if(top>=n-1)
+      cout<<"Stack Overflow"<<endl;
+   else {
+      top++;
+      stack[top]=val;
+   }
+}
+void pop() {
+   if(top<=-1)
+      cout<<"Stack Underflow"<<endl;
+   else {
+      cout<<"The popped element is "<< stack[top] <<endl;
+      top--;
+   }
+}
+void display() {
+   if(top>=0) {
+      cout<<"Stack elements are:";
+      for(int i=top; i>=0; i--)
+         cout<<stack[i]<<" ";
+         cout<<endl;
+   } else
+      cout<<"Stack is empty";
+}
+int main() {
+   int ch, val;
+   cout<<"1) Push in stack"<<endl;
+   cout<<"2) Pop from stack"<<endl;
+   cout<<"3) Display stack"<<endl;
+   cout<<"4) Exit"<<endl;
+   do {
+      cout<<"Enter choice: "<<endl;
+      cin>>ch;
+      switch(ch) {
+         case 1: {
+            cout<<"Enter value to be pushed:"<<endl;
+            cin>>val;
+            push(val);
+            break;
+         }
+         case 2: {
+            pop();
+            break;
+         }
+         case 3: {
+            display();
+            break;
+         }
+         case 4: {
+            cout<<"Exit"<<endl;
+            break;
+         }
+         default: {
+            cout<<"Invalid Choice"<<endl;
+         }
+      }
+   }while(ch!=4);
+      return 0;
+}
+}
+void bstarray()
+{/* A binary tree node has data,  
+pointer to left child and a 
+pointer to right child */
+struct Node 
+{ 
+    int data; 
+    Node* left, * right; 
+}; 
+  
+/* Helper function that allocates a 
+new node */
+Node* newNode(int data) 
+{ 
+    Node* node = (Node*)malloc(sizeof(Node)); 
+    node->data = data; 
+    node->left = node->right = NULL; 
+    return (node); 
+} 
+  
+// Function to insert nodes in level order 
+Node* insertLevelOrder(int arr[], Node* root, 
+                       int i, int n) 
+{ 
+    // Base case for recursion 
+    if (i < n) 
+    { 
+        Node* temp = newNode(arr[i]); 
+        root = temp; 
+  
+        // insert left child 
+        root->left = insertLevelOrder(arr, 
+                   root->left, 2 * i + 1, n); 
+  
+        // insert right child 
+        root->right = insertLevelOrder(arr, 
+                  root->right, 2 * i + 2, n); 
+    } 
+    return root; 
+} 
+  
+// Function to print tree nodes in 
+// InOrder fashion 
+void inOrder(Node* root) 
+{ 
+    if (root != NULL) 
+    { 
+        inOrder(root->left); 
+        cout << root->data <<" "; 
+        inOrder(root->right); 
+    } 
+} 
+  
+// Driver program to test above function 
+int main() 
+{ 
+    int arr[] = { 1, 2, 3, 4, 5, 6, 6, 6, 6 }; 
+    int n = sizeof(arr)/sizeof(arr[0]); 
+    Node* root = insertLevelOrder(arr, root, 0, n); 
+    inOrder(root); 
+} 
 }
 void bstarray() 
 {/* A binary tree node has data,  
@@ -528,9 +857,16 @@ cout<<"8.	Write a generic function to sort the given elements in ascending order
 cout<<"9	Write a generic class to implement the operations of a stack data structure using arrays. This generic class must support integer and float types."<<endl
 cout<<"10	Write contents into a Test file. Get a word from the user as input, compute the number of occurrences of this word in the file and print the count."
 cout<<"11 write a program for array rotation"<<endl;
+<<<<<<< HEAD
 cout<<"12write a program of implementation of queue using array"<<endl;
 cout<<"13.Construct a complete binary tree using array"<<endl;
 
+=======
+cout<<"12write a program of implementation of queue using array"<<endl;}
+cout<<"13C++ Program to Implement Stack using array"<<endl;
+cout<<"14 write a program to create bst using array"<<endl;
+cout<<"15 wap to create a bst usong linkedlist"<<endl;
+cout<<"16 wap a program to implement priority queue"<<endl;
 int x;
 	cin>>x;
 	switch(x)
@@ -564,6 +900,18 @@ case 11: arrayrotation();
         break;
 case 12:queuearray()	;
 	break;
+
 case 12:bstarray();
 	break;
 
+=======
+case 13:stackusingarray();
+        break;
+ case 14:bstarray();
+        break;
+case 15:bstlinkedlist();
+	break;
+case 16:priorityqueue();
+	break;
+	return 1;
+	}
